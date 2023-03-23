@@ -1,0 +1,48 @@
+For the final project, there are several important files,
+and scripts to help set up the necessary python env. 
+
+There is some useful information in the following link for
+using tensorflow/python on discovery:
+
+https://rc-docs.northeastern.edu/en/latest/using-discovery/workingwithgpu.html
+
+I have tried to create scripts to get everything set up automatically. 
+First, duplicate my conda env by running the following:
+
+	module load anaconda3/2022.01
+	conda env create -f final_env.yml
+
+This should create a conda env with all necessary modules. 
+
+Next, run the following to load the env: 
+
+	. load.script	
+
+Now, you should see (final_env) at the start of the terminal entry. 
+
+run.bash can be used to run the code. There are a couple of imporant things in 
+this script. 
+
+To run the code on a CPU, use this setup 
+FLAGS=--no-cuda
+#FLAGS=
+
+To run the code on a GPU, use this setup:
+#FLAGS=--no-cuda
+FLAGS=
+
+The script also lets you set the dataset used for testing.
+You can use any of the following options:
+['beans', 'uc_merced', 'tf_flowers', 'oxford_flowers102']
+
+Just specify this in the dataset option like shown:
+DATASET=beans
+
+To run the script, just type ./run.bash
+
+The script will run test.py using the flags passed to it.
+The output is fairly self explanatory, but should display the training process
+during each epoch, the accuracy and loss, and the execution time, 
+for both training and testing the dataset.  
+
+model.py contains all of the code to generate the model and load datasets. 
