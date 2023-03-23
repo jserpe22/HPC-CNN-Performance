@@ -1,6 +1,6 @@
 # Convolutional Neural Network Performance CPU versus GPU
 
-#Abstract
+## Abstract
 Machine learning (ML) applications require the ability to process large datasets, and taking
 advantage of using many threads to process this data synchronously is extremely important.
 GPU’s have come to dominate in deep learning applications due to their massive multithreading
@@ -14,7 +14,7 @@ image classification datasets. Overall, the GPU’s were found to be much faster
 and testing, while appearing to generate more accurate models. This is in agreement with current
 industry usage and topics discussed in class.
 
-#Outline
+## Outline
 This paper is divided into the following sections:
 1. Hardware Description – a basic description of the CPU’s and GPU’s tested. This will
 include a comparison of their marketed computational capabilities.
@@ -28,7 +28,7 @@ CNN background information.
 6. Conclusions/Future Work – review of findings and discussion of next steps, including
 overview of distributed learning techniques. 
 
-#1. Hardware Description
+## 1. Hardware Description
 Four different processing units, two CPU’s and two GPU’s were evaluated for each dataset.
 These were chosen due to their varying capabilities. All of the software was run on discovery on
 nodes that had the following hardware specifications.
@@ -46,7 +46,7 @@ especially valuable to ML applications, which rely heavily on matrix multiplicat
 calculation. Additionally, while regular CUDA cores can perform one operation per cycle, tensor
 cores can perform multiple [6].
 
-#2. Software Description
+## 2. Software Description
 The main library used for the development and testing of the model was TensorFlow [7].
 TensorFlow provides many built in methods to interact with datasets, customize and compile 
 various types of models, and functions to train and test models, as well as record valuable
@@ -75,7 +75,7 @@ TensorFlow also has built in capabilities for distributed training techniques, w
 discussed in the future work section.
 
 
-#3. Dataset Description
+## 3. Dataset Description
 Four different datasets were tested to compare the impact of varying training/test sizes, image
 resolution, and complexity of the data (number of classes). Each dataset belonged to the
 TensorFlow Datasets library, which made it easy to import the data to discovery and use it with
@@ -107,7 +107,7 @@ In the results section, we will see how the data set size and complexity impacts
 performance of the model. 
 
 
-#4. Model Description
+## 4. Model Description
 As a general disclaimer, the model generated for this paper was not meant to be highly accurate
 or effective in terms of the classification of the datasets. Its purpose was simply to explore the
 performance of the different hardware chosen. In general models need to be tuned and
@@ -131,7 +131,7 @@ classified.
 All layers of the model used are showed in the following image:
 
 
-#5. Results/Analysis
+## 5. Results/Analysis
 Timing data was recorded for both training and evaluating the model for each dataset on each
 processor, along with training accuracy and loss, as well as test accuracy and loss. For each
 run, the model was trained using the given training set over 7 epochs (the data was passed
@@ -201,7 +201,7 @@ of these devices, much larger datasets, which are used in many applications, cou
 to long training times on a single GPU. 
 
 
-#6. Conclusions/Future Work
+## 6. Conclusions/Future Work
 In testing the training of a CNN over various datasets, it was clear that GPU’s are far superior to
 CPU’s for this purpose. Training time was orders of magnitude lower on the GPU’s, thanks to
 the massive amount of concurrency possible on a device with thousands of cores. Even
@@ -238,7 +238,7 @@ become, and how to optimize these workloads. This will become very important as 
 become more demanding.
 
 
-#Sources
+## Sources
 [1] “AMD EPYC 7543 vs Intel Xeon E5-2680 V4.” GadgetVersus,
 https://gadgetversus.com/processor/amd-epyc-7543-vs-intel-xeon-e5-2680-v4/.
 [2] “Nvidia Tesla P100 Pcie 16 GB Specs.” TechPowerUp, 4 Nov. 2022,
