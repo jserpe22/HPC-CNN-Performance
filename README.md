@@ -34,9 +34,13 @@ These were chosen due to their varying capabilities. All of the software was run
 nodes that had the following hardware specifications.
 CPU Comparison [1]:
 
+![](Images/CPU-comparison.PNG)
+
 Both nodes had two sockets, so twice the number of cores shown were available for testing. The
 AMD processor has much better potential, which is expected on a 5 year younger processor.
 GPU Comparison [2],[3],[4],[5]: 
+
+![](Images/GPU-comparison.PNG)
 
 Besides being 4 years newer, the A100 also features nearly double the number of CUDA cores,
 and over 2x the DP performance. A notable improvement between the P100 and later Nvidia
@@ -82,26 +86,32 @@ TensorFlow Datasets library, which made it easy to import the data to discovery 
 the TensorFlow API, but other datasets could have been used with minimal changes.
 The datasets are summarized in the following chart, ordered by the train size:
 
+![](Images/data-description.PNG)
+
 beans: This is a collection of images of bean leaves that belong to three classes. One is healthy,
 and two show evidence of diseases, specifically Angular Leaf Spot and Bean Rust. The national
 Crops Resources Research Institute (NaCRRI) in Uganda annotated the images, and the data was
 collected by Makerere AI [https://www.tensorflow.org/datasets/catalog/beans]. 
 
+![](Images/beans.PNG)
 
 uc_merced: This is a collection of aerial images of various urban areas, depicting different
 classes (such as beaches, buildings, and highways). The images were extracted from the USGS
 National Map Urban Area Imagery collection
 [https://www.tensorflow.org/datasets/catalog/uc_merced]
 
+![](Images/uc-merced.PNG)
 
 TF Flowers: This is a simple dataset of 5 different species of flowers (5 classes)
 [https://www.tensorflow.org/datasets/catalog/tf_flowers]. 
 
+![](Images/flowers.PNG)
 
 oxford_flowers: This is another flowers dataset, but was chosen in addition because it has a
 much larger data set size, and a much larger variety of species (102 classes)
 [https://www.tensorflow.org/datasets/catalog/oxford_flowers102].
 
+![](Images/oxford.PNG)
 
 In the results section, we will see how the data set size and complexity impacts the timing and
 performance of the model. 
@@ -118,6 +128,7 @@ The type of model chosen was a Convolutional Neural Network (CNN). CNN’s are t
 used for image processing or classification, and contains one or more convolutional layers [14].
 A convolution, mathematically, is the following: 
 
+![](Images/convolution.PNG)
 
 This can be broken down into matrix multiplication. Within a neural network, a convolutional
 layer acts as a filter. The input data passes through this filter and produces output data. The basic
@@ -130,6 +141,7 @@ classified.
 
 All layers of the model used are showed in the following image:
 
+![](Images/CNN-diagram.PNG)
 
 ## 5. Results/Analysis
 Timing data was recorded for both training and evaluating the model for each dataset on each
@@ -139,22 +151,24 @@ through the model 7 times in total).
 A summary of the results are shown in tabular form below, and displayed graphically in the
 following subsections. 
 
+![](Images/all-results.PNG)
 
 Execution Time:
 Timing data was taken for both training and testing the model. 
 
+![](Images/training-time-all.PNG)
 
 In the above graph, it is immediately evident how useful GPU’s are for these types of
 workloads. Both the P100 and A100 perform several orders of magnitude better than the two
 CPUs. The GPU’s take merely seconds to train the model, while the CPU’s can take up to 30
 minutes. It is also clear that the larger the dataset, the longer training will take. 
 
+![](Images/testing-time-all.PNG)
 
 For testing the data, there is a similar benefit to using the GPU’s, although the difference here is
 much less. All the processors were able to validate the datasets within less than 30 seconds.
 However, the GPU’s do not take more than 5 seconds for any dataset, while the testing time on
 the CPU jumps considerably as the data set size increases. 
-
 
 The reasoning for both of these trends is due to the nature of the neural network itself. As
 discussed, the basic arithmetic involved in a CNN is matrix multiplication. As we have discussed
@@ -162,11 +176,12 @@ thoroughly, matrix multiplication can be optimized on the GPU due to the thousan
 available, and the ability to have many threads working concurrently. The limited threading
 capabilities of the CPU cannot match that of the GPU, which leads to much slower training. 
 
-
 Accuracy:
 The accuracy of the model was recorded using both the training and testing datasets. 
 
+![](Images/training-accuracy.PNG)
 
+![](Images/testing-accuracy.PNG)
 
 For both the training and testing accuracy, there are a couple of important things to consider.
 Firstly, it appears evident in both graphs that the platform does not have an effect on either
@@ -175,10 +190,12 @@ well within what would be expected as a result of shuffling the data when traini
 Additionally, there should not be any difference in the accuracy, as the model is not changing
 between the platforms, and thus should be outputting similar results.
 
-
 CPU Comparison:
 Between the CPU’s there is a noticeable difference in performance, shown here:
 
+![](Images/cpu-time-comparison.PNG)
+
+![](Images/cpu-speedup.PNG)
 
 Overall, the 64 total cores of the two EPYC-7543s have better performance than the 28 total
 cores of the two E5-2680s. Especially for smaller datasets, the speedup provided by the
@@ -190,6 +207,9 @@ impractical (when GPUs can perform much better).
 
 GPU Comparison:
 
+![](Images/gpu-time-comparison.PNG)
+
+![](Images/gpu-speedup.PNG)
 
 Again, one GPU is clearly more powerful than the other. The A100 has around twice the
 number of cores available, and roughly twice the overall processing power (including 432
