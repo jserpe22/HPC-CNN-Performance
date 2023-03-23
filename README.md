@@ -241,24 +241,50 @@ become more demanding.
 ## Sources
 [1] “AMD EPYC 7543 vs Intel Xeon E5-2680 V4.” GadgetVersus,
 https://gadgetversus.com/processor/amd-epyc-7543-vs-intel-xeon-e5-2680-v4/.
+
 [2] “Nvidia Tesla P100 Pcie 16 GB Specs.” TechPowerUp, 4 Nov. 2022,
 https://www.techpowerup.com/gpu-specs/tesla-p100-pcie-16-gb.c2888.
+
 [3] “Nvidia Tesla P100: The Most Advanced Data Center Accelerator.” NVIDIA,
 https://www.nvidia.com/en-us/data-center/tesla-p100/.
+
 [4] Nvidia A100 40GB Pcie GPU Accelerator. https://www.nvidia.com/content/dam/enzz/Solutions/Data-Center/a100/pdf/A100-PCIE-Prduct-Brief.pdf.
+
 [5] “Nvidia A100 PCIe 40 GB Specs.” TechPowerUp, 4 Nov. 2022,
 https://www.techpowerup.com/gpu-specs/a100-pcie-40-gb.c3623.
+
 [6] Tensor Cores Explained: Do You Need Them? - Tech Centurion.
 https://www.techcenturion.com/tensor-cores/.
+
 [7] “Tensorflow.” TensorFlow, https://www.tensorflow.org/.
+
 [8] Makerere Ai Lab. Beans disease dataset. January 2022, https://github.com/AI-LabMakerere/ibean/
+
 [9] Yang, Yi and Newsam, Shawn. Bag-Of-Visual-Words and Spatial Extensions for Land-Use
 Classification. 2010.
+
 [10] The TensorFlow Team. Flowers. January 2019.
 http://download.tensorflow.org/example_images/flower_photos.tgz
-In terms of the difference in accuracy between data sets, again this is due to the fact that the
-model is not being tuned for each dataset, as we only care about comparing the platforms. 
 
+[11] Nilsback, M-E. and Zisserman, A. Automated Flower Classification over a Large Number of
+Classes. December 2008.
+
+[12] Gupta, Arijit. “Distributed Learning on Image Classification of Beans in Tensorflow.”
+Medium, Towards Data Science, 7 May 2020,
+https://towardsdatascience.com/distributed-learning-on-image-classification-of-beansin-tensorflow-5a85e6c3eb71.
+[13] “Convolution.” Wikipedia, Wikimedia Foundation, 2 Dec. 2022,
+https://en.wikipedia.org/wiki/Convolution.
+
+[14] “Convolutional Neural Network.” Wikipedia, Wikimedia Foundation, 25 Nov. 2022,
+https://en.wikipedia.org/wiki/Convolutional_neural_network.
+
+[15] “Tf.distribute.experimental.multiworkermirroredstrategy : Tensorflow V2.11.0.”
+TensorFlow,
+https://www.tensorflow.org/api_docs/python/tf/distribute/experimental/MultiWorkerMi
+rroredStrategy.
+
+[16] “Horovod with Tensorflow.” Horovod with TensorFlow - Horovod Documentation,
+https://horovod.readthedocs.io/en/stable/tensorflow.html. 
 
 
 
